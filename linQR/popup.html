@@ -14,26 +14,12 @@
             margin-top: 20px;
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js" integrity="sha512-pUhApVQtLbnpLtJn6DuzDD5o2xtmLJnJ7oBoMsBnzOkVkpqofGLGPaBJ6ayD2zQe3lCgCibhJBi4cj5wAxwVKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <h1>QR Code Generator</h1>
     <button id="generate">Generate QR Code</button>
     <canvas id="qrcode" width="200" height="200"></canvas>
-
-    <script>
-        document.getElementById('generate').addEventListener('click', async () => {
-            // Get the active tab's URL
-            let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-            const url = tab.url;
-
-            // Generate QR code using QRious
-            const qr = new QRious({
-                element: document.getElementById('qrcode'),
-                value: url,
-                size: 200
-            });
-        });
-    </script>
+    <script src="libs/qrious/4.0.2/qrious.min.js"></script> <!-- Local reference -->
+    <script src="popup.js"></script> <!-- External JS -->
 </body>
 </html>
